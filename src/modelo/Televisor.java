@@ -36,7 +36,7 @@ public class Televisor extends Electrodomestico{
 		if(tamanio>=50) {
 			precioFinal+=100;
 		}
-		return precioFinal();
+		return precioFinal;
 	}
 	
 	
