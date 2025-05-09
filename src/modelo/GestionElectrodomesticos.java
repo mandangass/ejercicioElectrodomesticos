@@ -79,5 +79,19 @@ public class GestionElectrodomesticos {
 		}
 		return false;
 	}
+	
+	public String mostrarMarcas() {
+		String marcas="";
+		for (Electrodomestico electrodomestico : listaElectrodomesticos) {
+			String marcaActual = electrodomestico.getMarca();
+			if(marcas.contains(marcaActual)) {
+				if(!marcas.isEmpty()) {
+					marcas += "-";
+				}
+				marcas +=marcaActual;
+			}
+		}
+		return marcas;
+	}
 
 }
