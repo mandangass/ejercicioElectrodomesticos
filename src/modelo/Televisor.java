@@ -33,7 +33,7 @@ public class Televisor extends Electrodomestico{
 	public double precioFinal() {
 		// TODO Auto-generated method stub
 		double precioFinal=super.precioFinal();
-		if(tamanio>=50) {
+		if(tamanio>50) {
 			precioFinal+=100;
 		}
 		return precioFinal;
