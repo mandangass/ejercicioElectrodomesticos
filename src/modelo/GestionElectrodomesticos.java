@@ -1,5 +1,6 @@
 package modelo;
 
+import java.awt.Container;
 import java.util.HashSet;
 import java.util.Iterator;
 
@@ -79,19 +80,40 @@ public class GestionElectrodomesticos {
 		}
 		return false;
 	}
-	
+
 	public String mostrarMarcas() {
-		String marcas="";
+		String marcas = "";
 		for (Electrodomestico electrodomestico : listaElectrodomesticos) {
 			String marcaActual = electrodomestico.getMarca();
-			if(marcas.contains(marcaActual)) {
-				if(!marcas.isEmpty()) {
+			if (marcas.contains(marcaActual)) {
+				if (!marcas.isEmpty()) {
 					marcas += "-";
 				}
-				marcas +=marcaActual;
+				marcas += marcaActual;
 			}
 		}
 		return marcas;
 	}
 
+	public int eliminarPorMarca(String marca) {
+		Iterator<Electrodomestico> iterator = listaElectrodomesticos.iterator();
+		int contEliminados = 0;
+		while (iterator.hasNext()) {
+			Electrodomestico electrodomestico = iterator.next();
+			if (electrodomestico.getMarca().equalsIgnoreCase(marca)) {
+				iterator.remove();
+				contEliminados++;
+			}
+		}
+		return contEliminados;
+	}
+
+	public boolean lavadoras() {
+		for (Electrodomestico electrodomestico : listaElectrodomesticos) {
+			if (electrodomestico instanceof Lavadora) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
