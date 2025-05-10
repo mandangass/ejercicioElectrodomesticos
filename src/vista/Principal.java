@@ -2,12 +2,18 @@ package vista;
 
 import java.util.Scanner;
 
+import modelo.Electrodomestico;
+import modelo.GestionElectrodomesticos;
+import modelo.Lavadora;
+
 public class Principal {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		  Scanner sc = new Scanner(System.in);
+		  
+		  GestionElectrodomesticos gestor = new GestionElectrodomesticos();
 	        boolean salir = false;
 	        int opcion;
 	         
@@ -30,6 +36,21 @@ public class Principal {
 	            switch(opcion){
 	                case 1:
 	                    System.out.println("Has seleccionado la opcion 1");
+	                    System.out.println("introducir codigo");
+	                    String codigo = sc.nextLine();
+	                    System.out.println("introducir marca");
+	                    String marca = sc.nextLine();
+	                    System.out.println("introducir modelo");
+	                    String modelo = sc.nextLine();
+	                    System.out.println("introducir precioBase");
+	                    double precio = sc.nextDouble();
+	                    System.out.println("introducir carga");
+	                    int carga = sc.nextInt();
+	                    
+	                    Lavadora lavadora = new Lavadora(codigo, marca, modelo, precio, carga);
+	                    
+	                    gestor.addLavadora(lavadora);
+	                    
 	                    break;
 	                case 2:
 	                    System.out.println("Has seleccionado la opcion 2");
